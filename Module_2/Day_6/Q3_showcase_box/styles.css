@@ -1,0 +1,49 @@
+/* Styling for the container box */
+.container {
+  width: 500px;
+  height: 600px;
+  border: 3px solid grey;
+  margin: 10px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image styling */
+.container img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Product title */
+.container h3 {
+  font-weight: bold;
+  text-align: center;
+  margin: 15px 0 10px 0;
+}
+
+/* Product description */
+.container p {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
