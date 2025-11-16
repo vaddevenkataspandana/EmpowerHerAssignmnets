@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Schedule</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f6f7fb;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border-radius: 14px;
+            padding: 30px 40px 40px 40px;
+        }
+        .rainbow {
+            margin-top: 0;
+            margin-bottom: 10px;
+            height: 30px;
+            background: linear-gradient(90deg, #f9e7d4 0%, #ded3fa 33%, #cee6e7 66%, #fbe3e1 100%);
+            border-radius: 25px 25px 0 0;
+        }
+        h1 {
+            text-align: center;
+            color: #2b3365;
+            font-size: 2.5rem;
+            font-family: 'Pacifico', cursive;
+            margin-top: 10px;
+            margin-bottom: 18px;
+        }
+        .stars {
+            text-align: center;
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+        }
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 85px repeat(5, 1fr);
+            gap: 12px;
+            background: #e8f6fa;
+            border-radius: 12px;
+            padding: 25px 20px 15px 20px;
+        }
+        .time, .day-header {
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 6px;
+        }
+        .time {
+            background: none;
+            color: #2b3365;
+            padding: 6px 0;
+            font-size: 1.08em;
+        }
+        .day-header {
+            padding: 10px 0;
+            font-size: 1.12em;
+        }
+        .monday { background: #f5e9ef; color: #2b3365; }
+        .tuesday { background: #f9ecbe; color: #2b3365; }
+        .wednesday { background: #e2e6fa; color: #2b3365; }
+        .thursday { background: #f6efd8; color: #2b3365; }
+        .friday { background: #f5e9ef; color: #2b3365; }
+        .cell {
+            height: 32px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 4px;
+        }
+        .cell.monday { background: #f5e9ef; }
+        .cell.tuesday { background: #f9ecbe; }
+        .cell.wednesday { background: #e2e6fa; }
+        .cell.thursday { background: #f6efd8; }
+        .cell.friday { background: #f5e9ef; }
+        .note {
+            margin-top: 16px;
+            padding: 8px 10px;
+            background: #d6f6f9;
+            border-radius: 9px;
+            font-size: 1.03em;
+            color: #207e88;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="rainbow"></div>
+        <h1>Weekly schedule</h1>
+        <div class="stars">&#10024; &#10024;</div>
+        <div class="schedule-grid">
+            <div></div>
+            <div class="day-header monday">Monday</div>
+            <div class="day-header tuesday">Tuesday</div>
+            <div class="day-header wednesday">Wednesday</div>
+            <div class="day-header thursday">Thursday</div>
+            <div class="day-header friday">Friday</div>
+
+            <div class="time">08:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">09:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">10:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">11:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">12:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">13:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">14:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">15:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+
+            <div class="time">16:00</div>
+            <div class="cell monday"></div>
+            <div class="cell tuesday"></div>
+            <div class="cell wednesday"></div>
+            <div class="cell thursday"></div>
+            <div class="cell friday"></div>
+        </div>
+        <div class="note">Note:</div>
+    </div>
+</body>
+</html>

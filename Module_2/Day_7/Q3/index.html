@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Masai Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin-top: 40px;
+      text-align: center;
+    }
+    h1 {
+      color: #2996ab;
+      margin-bottom: 40px;
+    }
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 50px);
+      grid-template-rows: repeat(4, 50px);
+      gap: 10px;
+      justify-content: center;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 30px;
+      width: max-content;
+    }
+    .btn {
+      background: #111;
+      color: #fff;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn:active {
+      background: #444;
+    }
+    .btn-clear {
+      background: #ed2224;
+      color: #fff;
+    }
+    .btn-plus {
+      background: #2996ab;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Masai Calculator</h1>
+  <div class="calculator">
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn btn-plus">+</button>
+
+    <button class="btn">4</button>
+    <button class="btn">5</button>
+    <button class="btn">6</button>
+    <button class="btn">-</button>
+
+    <button class="btn">7</button>
+    <button class="btn">8</button>
+    <button class="btn">9</button>
+    <button class="btn">*</button>
+
+    <button class="btn btn-clear">C</button>
+    <button class="btn">0</button>
+    <button class="btn">.</button>
+    <button class="btn">/</button>
+  </div>
+</body>
+</html>

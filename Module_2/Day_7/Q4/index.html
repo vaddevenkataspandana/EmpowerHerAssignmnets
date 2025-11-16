@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Masai Investors Using Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 30px;
+    }
+    h1 {
+      color: #2996ab;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .investor-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #e4e4e4;
+      text-align: center;
+      padding: 20px 14px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .investor-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: #ececec;
+    }
+    .investor-name {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .investor-role {
+      color: #6a6a6a;
+      font-size: 0.95em;
+      margin-bottom: 8px;
+    }
+    .logo-img {
+      height: 23px;
+      margin-top: 5px;
+    }
+    /* Responsive for 2 rows on small screens */
+    @media (max-width: 1000px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Masai Investors Using Grid</h1>
+  <div class="grid-container">
+    <!-- Top row -->
+    <div class="investor-card">
+      <img class="investor-img" src="https://tse2.mm.bing.net/th/id/OIP.xwBjvEIdOXJa-jSKCpltyQHaFA?pid=Api&P=0&h=180" alt="Vijay Shekhar Sharma">
+      <div class="investor-name">Vijay Shekhar Sharma</div>
+      <div class="investor-role">Founder & CEO</div>
+      <img class="logo-img" src="https://tse3.mm.bing.net/th/id/OIP.rr2PcYggW2OLnWuP4QzF7wHaEK?pid=Api&P=0&h=180" alt="Paytm">
+    </div>
+    <div class="investor-card">
+      <img class="investor-img" src="INVESTOR2_IMAGE_URL" alt="Kunal Shah">
+      <div class="investor-name">Kunal Shah</div>
+      <div class="investor-role">Founder</div>
+      <img class="logo-img" src="CRED_LOGO_URL" alt="Cred">
+    </div>
+    <div class="investor-card">
+      <img class="investor-img" src="INVESTOR3_IMAGE_URL" alt="Amrish Rau">
+      <div class="investor-name">Amrish Rau</div>
+      <div class="investor-role">CEO</div>
+      <img class="logo-img" src="PINELABS_LOGO_URL" alt="Pine Labs">
+    </div>
+    <div class="investor-card">
+      <img class="investor-img" src="INVESTOR4_IMAGE_URL" alt="Sampad Swain">
+      <div class="investor-name">Sampad Swain</div>
+      <div class="investor-role">Co-Founder & CEO</div>
+      <img class="logo-img" src="INSTAMOJO_LOGO_URL" alt="Instamojo">
+    </div>
+    <!-- Second row -->
+    <div class="investor-card">
+      <img class="investor-img" src="INVESTOR5_IMAGE_URL" alt="Ankush Sachdeva">
+      <div class="investor-name">Ankush Sachdeva</div>
+      <div class="investor-role">Co-Founder & CEO</div>
+      <img class="logo-img" src="SHARECHAT_LOGO_URL" alt="ShareChat">
+    </div>
+    <div class="investor-card">
+      <img class="investor-img" src="INVESTOR6_IMAGE_URL" alt="Bhanu Pratap Singh">
+      <div class="investor-name">Bhanu Pratap Singh</div>
+      <div class="investor-role">Co-Founder & CTO</div>
+      <img class="logo-img" src="SHARECHAT_LOGO_URL" alt="ShareChat">
+    </div>
+    <div class="investor-card">
+      <img class="investor-img" src="INVESTOR7_IMAGE_URL" alt="Farid Ahsan">
+      <div class="investor-name">Farid Ahsan</div>
+      <div class="investor-role">Co-Founder & COO</div>
+      <img class="logo-img" src="SHARECHAT_LOGO_URL" alt="ShareChat">
+    </div>
+    <div class="investor-card">
+      <img class="investor-img" src="INVESTOR8_IMAGE_URL" alt="Amit Kumar Agarwal">
+      <div class="investor-name">Amit Kumar Agarwal</div>
+      <div class="investor-role">Founder & CEO</div>
+      <img class="logo-img" src="NOBROKER_LOGO_URL" alt="NoBroker">
+    </div>
+  </div>
+</body>
+</html>
