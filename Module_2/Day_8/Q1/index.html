@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Coffee Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .menu-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.07);
+            padding: 22px 20px 18px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card img {
+            max-width: 90px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+        }
+        .card-title {
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-bottom: 6px;
+        }
+        .card-price {
+            color: #bf8c56;
+            font-weight: bold;
+            float: right;
+            font-size: 1.12em;
+        }
+        .card-desc {
+            color: #444;
+            font-size: 0.98em;
+            margin-top: 10px;
+            text-align: center;
+        }
+        /* Media queries */
+        @media (max-width: 900px) {
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Cappuccino">
+            <span class="card-title">Cappuccino</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.Tftv7mZ4jl18cQLhrfyUEAHaE7?pid=Api&P=0&h=180" alt="Americano">
+            <span class="card-title">Americano</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.dByRjIi_hqH-mFGU4-mkPwHaE8?pid=Api&P=0&h=180" alt="Espresso">
+            <span class="card-title">Espresso</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.iObZOXH9CgWppRQudO96NwHaHa?pid=Api&P=0&h=180" alt="Macchiato">
+            <span class="card-title">Macchiato</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Mocha">
+            <span class="card-title">Mocha</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" alt="Coffee Latte">
+            <span class="card-title">Coffee Latte</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://tastylicious.com/wp-content/uploads/2022/12/freshly-made-piccolo-latte-in-clear-glass-on-white-saucer-with-spoon.jpg" alt="Piccolo Latte">
+            <span class="card-title">Piccolo Latte</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Ristretto">
+            <span class="card-title">Ristretto</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=800&q=80" alt="Affogato">
+            <span class="card-title">Affogato</span>
+            <span class="card-price">$49</span>
+            <div class="card-desc">Usage of the internet is becoming more common due to rapid advance.</div>
+        </div>
+    </div>
+</body>
+</html>
