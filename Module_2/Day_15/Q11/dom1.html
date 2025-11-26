@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Navigation Example</title>
+</head>
+<body>
+    <h1 id="main-heading">Old Heading</h1>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <div class="container">This is the container div.</div>
+
+    <script>
+        
+        document.getElementById('main-heading').textContent = 'Welcome to the DOM World!';
+
+       
+        let paragraphs = document.getElementsByTagName('p');
+        for (let p of paragraphs) {
+            p.style.color = 'blue';
+        }
+
+      
+        document.querySelector('.container').style.backgroundColor = 'yellow';
+    </script>
+</body>
+</html>

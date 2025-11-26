@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive DOM Manipulation</title>
+</head>
+<body>
+  <input type="text" id="colorInput" placeholder="Enter color name">
+  <input type="text" id="textInput" placeholder="Enter text">
+  <button id="bgBtn">Change Background</button>
+  <button id="textBtn">Update Text</button>
+  <div id="myDiv" style="padding:20px; margin-top:15px;">Initial Text Content</div>
+
+  <script>
+    const colorInput = document.getElementById("colorInput");
+    const textInput = document.getElementById("textInput");
+    const bgBtn = document.getElementById("bgBtn");
+    const textBtn = document.getElementById("textBtn");
+    const myDiv = document.getElementById("myDiv");
+
+    // Helper function to validate color name
+    function isValidColor(color) {
+      const s = new Option().style;
+      s.color = color;
+      return s.color !== '';
+    }
+
+    bgBtn.onclick = function() {
+      const colorName = colorInput.value.trim();
+      if(isValidColor(colorName)) {
+        myDiv.style.background = colorName;
+      } else {
+        alert("Invalid color name!");
+      }
+    };
+
+    textBtn.onclick = function() {
+      const newText = textInput.value;
+      myDiv.textContent = newText;
+    };
+  </script>
+</body>
+</html>
