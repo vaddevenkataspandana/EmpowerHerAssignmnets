@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Creating and Removing Elements</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 16px;
+      }
+      #controls {
+        margin-bottom: 12px;
+      }
+      button {
+        margin-right: 8px;
+        padding: 6px 12px;
+      }
+      #container p {
+        margin: 4px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Creating and Removing Elements</h1>
+
+    <div id="controls">
+      <button id="addBtn">Add Paragraph</button>
+      <button id="removeBtn">Remove Last Paragraph</button>
+    </div>
+
+    <!-- Paragraphs will be added here -->
+    <div id="container"></div>
+
+    <script>
+      const container = document.getElementById("container");
+
+      // Add Paragraph: createElement + appendChild
+      document.getElementById("addBtn").addEventListener("click", function () {
+        const p = document.createElement("p"); // create <p> element [web:45]
+        p.textContent = "This is a new paragraph.";
+        container.appendChild(p);              // add as last child [web:54]
+      });
+
+      // Remove Last Paragraph: removeChild
+      document.getElementById("removeBtn").addEventListener("click", function () {
+        const last = container.lastElementChild;
+        if (last) {
+          container.removeChild(last);        // remove last paragraph [web:44]
+        }
+      });
+    </script>
+  </body>
+</html>
