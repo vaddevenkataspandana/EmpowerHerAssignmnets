@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enhanced Todo List</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enhanced Todo List</h1>
+
+  <!-- Add task -->
+  <input type="text" id="taskInput" placeholder="Enter task" />
+  <button id="addBtn">Add Task</button>
+
+  <!-- Search -->
+  <input type="text" id="searchInput" placeholder="Search tasks..." />
+
+  <!-- Task list -->
+  <ul id="taskList"></ul>
+
+  <script>
+    const STORAGE_KEY = "tasks";
+    const taskInput = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const searchInput = document.getElementById("searchInput");
+    const taskList = document.getElementById("taskList");
+
+    let tasks = [];
+
+    // Load tasks from localStorage on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        tasks = JSON.parse(saved);
+      }
+      renderTasks();
+    });
+
+    // Save tasks to localStorage
+    function saveTasks() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    }
+
+    // Generate unique ID
+    function generateId() {
+      return Date.now().toString() + Math.random().toString(16).slice(2);
+    }
+
+    // Add task
+    addBtn.addEventListener("click", () => {
+      const text = taskInput.value.trim();
+      if (text === "") {
+        alert("Please enter a task.");
+        return;
+      }
+
+      const newTask = {
+        id: generateId(),
+        text: text,
+        completed: false
+      };
+
+      tasks.push(newTask);
+      saveTasks();
+      taskInput.value = "";
+      renderTasks();
+    });
+
+    // Handle clicks on list (toggle complete / delete)
+    taskList.addEventListener("click", (e) => {
+      const id = e.target.closest("li")?.dataset.id;
+      if (!id) return;
+
+      if (e.target.classList.contains("toggle")) {
+        // Toggle completion
+        tasks = tasks.map(t =>
+          t.id === id ? { ...t, completed: !t.completed } : t
+        );
+        saveTasks();
+        renderTasks();
+      }
+
+      if (e.target.classList.contains("delete")) {
+        // Delete task
+        tasks = tasks.filter(t => t.id !== id);
+        saveTasks();
+        renderTasks();
+      }
+    });
+
+    // Search tasks
+    searchInput.addEventListener("input", () => {
+      renderTasks();
+    });
+
+    // Render tasks (with search filter)
+    function renderTasks() {
+      const searchText = searchInput.value.toLowerCase().trim();
+      taskList.innerHTML = "";
+
+      tasks
+        .filter(task =>
+          task.text.toLowerCase().includes(searchText)
+        )
+        .forEach(task => {
+          const li = document.createElement("li");
+          li.dataset.id = task.id;
+
+          const span = document.createElement("span");
+          span.textContent = task.text;
+          if (task.completed) {
+            span.classList.add("completed");
+          }
+
+          const toggleBtn = document.createElement("button");
+          toggleBtn.textContent = task.completed ? "Undo" : "Done";
+          toggleBtn.className = "toggle";
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.textContent = "Delete";
+          deleteBtn.className = "delete";
+
+          li.appendChild(span);
+          li.appendChild(toggleBtn);
+          li.appendChild(deleteBtn);
+
+          taskList.appendChild(li);
+        });
+    }
+  </script>
+</body>
+</html>
