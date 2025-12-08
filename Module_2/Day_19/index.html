@@ -2,27 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Manager</title>
-  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div id="sidebar">
-    <h2>Add New Book</h2>
 
-    <input type="text" id="title" placeholder="Title">
-    <input type="text" id="author" placeholder="Author">
-    <input type="number" id="price" placeholder="Price">
-    <input type="text" id="image" placeholder="Image URL">
+  <h1>Book Manager</h1>
 
-    <button id="addBtn">Add Book</button>
-  </div>
+  <h2>Add New Book</h2>
+  <form id="addBookForm">
+    <input type="text" id="title" placeholder="Title" required />
+    <input type="text" id="author" placeholder="Author" required />
+    <input type="number" id="year" placeholder="Year" required />
+    <button type="submit">Add Book</button>
+  </form>
 
-  <div id="main">
-    <h1>Book List</h1>
-    <div id="bookContainer"></div>
-  </div>
+  <h2>Book List</h2>
+  <div id="bookList"></div>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

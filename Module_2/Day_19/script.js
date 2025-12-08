@@ -1,97 +1,103 @@
-const BASE_URL =
-  "https://console.firebase.google.com/project/book-management-3e1df/database/book-management-3e1df-default-rtdb/data/~2F";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
-// ----------------------
-// GET BOOKS
-// ----------------------
-async function getBooks() {
-  let res = await fetch(BASE_URL);
-  let data = await res.json();
-  displayBooks(data.documents || []);
-}
-getBooks();
+// ---------------------------
+// 🔥 Replace this with YOUR config
+// ---------------------------
+const firebaseConfig = {
+  apiKey: "AIzaSyBhbG2auCUUwJDDj4IeibXJF2s4Oa4IZ1M",
+  authDomain: "book-management-3e1df.firebaseapp.com",
+  databaseURL: "https://book-management-3e1df-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "book-management-3e1df",
+  storageBucket: "book-management-3e1df.firebasestorage.app",
+  messagingSenderId: "649810706236",
+  appId: "1:649810706236:web:136e9588e7657ca894e839"
+};
 
-// ----------------------
-// ADD BOOK (POST)
-// ----------------------
-document.getElementById("addBtn").addEventListener("click", async () => {
-  let title = document.getElementById("title").value;
-  let author = document.getElementById("author").value;
-  let price = document.getElementById("price").value;
-  let image = document.getElementById("image").value;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  let body = {
-    fields: {
-      title: { stringValue: title },
-      author: { stringValue: author },
-      price: { integerValue: price },
-      image: { stringValue: image }
-    }
-  };
+const addBookForm = document.getElementById("addBookForm");
+const bookListDiv = document.getElementById("bookList");
 
-  await fetch(BASE_URL, {
-    method: "POST",
-    body: JSON.stringify(body)
+// ---------------------------
+// Add Book
+// ---------------------------
+addBookForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const year = document.getElementById("year").value;
+
+  await addDoc(collection(db, "books"), {
+    title,
+    author,
+    year: Number(year),
   });
 
-  getBooks();
+  addBookForm.reset();
+  loadBooks();
 });
 
-// ----------------------
-// DELETE BOOK
-// ----------------------
-async function deleteBook(docName) {
-  await fetch(`https://firestore.googleapis.com/v1/${docName}`, {
-    method: "DELETE"
-  });
-  getBooks();
-}
+// ---------------------------
+// Load Books
+// ---------------------------
+async function loadBooks() {
+  bookListDiv.innerHTML = "";
+  const querySnapshot = await getDocs(collection(db, "books"));
 
-// ----------------------
-// UPDATE AUTHOR (PATCH)
-// ----------------------
-async function updateAuthor(docName) {
-  let newAuthor = prompt("Enter new author name:");
+  querySnapshot.forEach((docData) => {
+    const book = docData.data();
+    const id = docData.id;
 
-  if (!newAuthor) return;
-
-  let body = {
-    fields: {
-      author: { stringValue: newAuthor }
-    }
-  };
-
-  await fetch(`https://firestore.googleapis.com/v1/${docName}?updateMask.fieldPaths=author`, {
-    method: "PATCH",
-    body: JSON.stringify(body)
-  });
-
-  getBooks();
-}
-
-// ----------------------
-// DISPLAY BOOKS
-// ----------------------
-function displayBooks(books) {
-  let container = document.getElementById("bookContainer");
-  container.innerHTML = "";
-
-  books.forEach((item) => {
-    let { name, fields } = item;
-
-    let card = document.createElement("div");
-    card.className = "book-card";
-
-    card.innerHTML = `
-      <img src="${fields.image.stringValue}">
-      <h3>${fields.title.stringValue}</h3>
-      <p>Author: ${fields.author.stringValue}</p>
-      <p>₹${fields.price.integerValue}</p>
-
-      <button onclick="updateAuthor('${name}')">Update</button>
-      <button onclick="deleteBook('${name}')">Delete</button>
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <p>
+        <strong>${book.title}</strong> - ${book.author} (${book.year})
+        <button onclick="deleteBook('${id}')">Delete</button>
+        <button onclick="editBook('${id}', '${book.title}', '${book.author}', ${book.year})">Edit</button>
+      </p>
     `;
 
-    container.append(card);
+    bookListDiv.appendChild(div);
   });
 }
+
+loadBooks();
+
+// ---------------------------
+// Delete Book
+// ---------------------------
+window.deleteBook = async function (id) {
+  await deleteDoc(doc(db, "books", id));
+  loadBooks();
+};
+
+// ---------------------------
+// Edit Book
+// ---------------------------
+window.editBook = function (id, title, author, year) {
+  const newTitle = prompt("New Title:", title);
+  const newAuthor = prompt("New Author:", author);
+  const newYear = prompt("New Year:", year);
+
+  if (!newTitle || !newAuthor || !newYear) return;
+
+  updateDoc(doc(db, "books", id), {
+    title: newTitle,
+    author: newAuthor,
+    year: Number(newYear),
+  });
+
+  loadBooks();
+};
